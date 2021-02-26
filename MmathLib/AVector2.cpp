@@ -5,6 +5,10 @@
 
 namespace Mmath
 {
+	AVector2 AVector2::Zero()
+	{
+		return AVector2();
+	}
 	/* Constructors */
 	AVector2::AVector2(const float _x, const float _y)
 		: x{ _x }, y{ _y }
@@ -31,6 +35,16 @@ namespace Mmath
 		float values[2] { _value,_value };
 		
 		_mm_store_ps(&newVector.x, _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&values[0])));
+
+		return newVector;
+	}
+
+	AVector2 AVector2::operator/(float _value) const
+	{
+		AVector2 newVector = *this;
+		float values[2]{ _value,_value };
+
+		_mm_store_ps(&newVector.x, _mm_div_ps(_mm_load_ps(&x), _mm_load_ps(&values[0])));
 
 		return newVector;
 	}
@@ -77,6 +91,36 @@ namespace Mmath
 	bool AVector2::operator==(const AVector2& _otherVector) const
 	{
 		return false;
+	}
+
+	AVector2 operator*(float _f, const AVector2& _vector)
+	{
+		AVector2 newVector;
+		float values[2] { _f, _f };
+		_mm_storer_ps(&newVector.x, _mm_mul_ps(_mm_load_ps(&_vector.x), _mm_load_ps(&values[0])));
+		return newVector;
+	}
+
+	AVector2& operator*(float _f, AVector2& _vector)
+	{
+		float values[2]{ _f, _f };
+		_mm_storer_ps(&_vector.x, _mm_mul_ps(_mm_load_ps(&_vector.x), _mm_load_ps(&values[0])));
+		return _vector;
+	}
+
+	AVector2 operator/(float _f, const AVector2& _vector)
+	{
+		AVector2 newVector;
+		float values[2]{ _f, _f };
+		_mm_storer_ps(&newVector.x, _mm_div_ps(_mm_load_ps(&_vector.x), _mm_load_ps(&values[0])));
+		return newVector;
+	}
+
+	AVector2& operator/(float _f, AVector2& _vector)
+	{
+		float values[2]{ _f, _f };
+		_mm_storer_ps(&_vector.x, _mm_div_ps(_mm_load_ps(&_vector.x), _mm_load_ps(&values[0])));
+		return _vector;
 	}
 
 	std::string& operator+(std::string& _string, const AVector2& _vector)
