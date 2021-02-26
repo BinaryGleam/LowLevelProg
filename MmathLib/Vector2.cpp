@@ -290,7 +290,7 @@ namespace CMath
 	}
 	std::ostream& operator<<(std::ostream& _outStream, const Vector2& _vector)
 	{
-		return _outStream << "Vec2(" << _vector.x << ", " << _vector.y << ")\n";
+		return _outStream << "Vec2(" << _vector.x << ", " << _vector.y << ")";
 	}
 	std::istream& operator>>(std::istream& _inStream, Vector2& _vector)
 	{

@@ -5,10 +5,12 @@
 
 namespace Mmath
 {
+	/* Static functions */
 	AVector2 AVector2::Zero()
 	{
 		return AVector2();
 	}
+
 	/* Constructors */
 	AVector2::AVector2(const float _x, const float _y)
 		: x{ _x }, y{ _y }
@@ -17,6 +19,19 @@ namespace Mmath
 	AVector2::AVector2(const AVector2& _vec2)
 		: x{ _vec2.x }, y{ _vec2.y }
 	{}
+
+	/* Methods */
+	float AVector2::DotProduct(const AVector2& _rhs) const
+	{
+		float toReturn = 0.f;
+		float mulResults[2] { 0.f, 0.f };
+		// multiply x with x and y with y and record it in the mulResults array
+		_mm_store_ps(&mulResults[0], _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&_rhs.x)));
+		//Sub the result of x*x and y*y that should be in the array
+		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]),_mm_load_ss(&mulResults[1])));
+		//We SHOULD have our dotProduct
+		return toReturn;
+	}
 
 	/* Operators */
 	AVector2 AVector2::operator-()

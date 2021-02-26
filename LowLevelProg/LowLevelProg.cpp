@@ -4,8 +4,10 @@
 #include <iostream>
 #include <xmmintrin.h>
 #include <AssemblyMath.h>
+#include <CustomMath.h>
 
 using namespace Mmath;
+using namespace CMath;
 
 void FloatTests()
 {
@@ -105,6 +107,14 @@ void Vec2Tests()
     std::cout << I << "=" << C << " becomes ";
     I = C;
     std::cout << I << std::endl;
+
+    std::cout << std::endl << "Starting DotProduct test" << std::endl;
+    Vector2 Abis = Vector2(A.x,A.y);
+    Vector2 Bbis = Vector2(B.x, B.y);
+    std::cout << "Creating Abis and Bbis vector from " << A << " and " << B << std::endl;
+    std::cout << "Abis=" << Abis << " and Bbis=" << Bbis << std::endl;
+    std::cout << Abis << "DOT" << Bbis << " becomes " << Abis.DotProduct(Bbis)<< std::endl;
+    std::cout << A << "DOT" << B << " becomes " << A.DotProduct(B) << std::endl;
 }
 
 
