@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\CustomMath">
+      <UniqueIdentifier>{222558d9-08f1-48a7-b76f-89ebcb34931d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\AssemblyMath">
+      <UniqueIdentifier>{b498a117-f931-4e5a-be31-5a27b7d71776}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CustomMath">
+      <UniqueIdentifier>{0e2a7441-5bbd-48f4-94b8-8385da533533}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Matrix.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Quaternion.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitTest\UnitTest.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector2.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector3.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="Vector4.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomMath.h">
+      <Filter>Header Files\CustomMath</Filter>
+    </ClInclude>
+    <ClInclude Include="AssemblyMath.h">
+      <Filter>Header Files\AssemblyMath</Filter>
+    </ClInclude>
+    <ClInclude Include="AVector2.h">
+      <Filter>Header Files\AssemblyMath</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="MmathLib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Matrix.cpp">
+      <Filter>Source Files\CustomMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Quaternion.cpp">
+      <Filter>Source Files\CustomMath</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitTest\UnitTest.cpp">
+      <Filter>Source Files\CustomMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2.cpp">
+      <Filter>Source Files\CustomMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector3.cpp">
+      <Filter>Source Files\CustomMath</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector4.cpp">
+      <Filter>Source Files\CustomMath</Filter>
+    </ClCompile>
+    <ClCompile Include="AVector2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

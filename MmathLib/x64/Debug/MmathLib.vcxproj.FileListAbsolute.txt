@@ -1,0 +1,3 @@
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\x64\Debug\MmathLib.pdb
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\x64\Debug\MmathLib.pdb
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\Libs\CustomMaths\x64\Debug\MmathLib.pdb

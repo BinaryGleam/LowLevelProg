@@ -1,0 +1,4 @@
+﻿  LowLevelProg.cpp
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\AssemblyMath.h(34,3): warning C4091: 'static ' : ignoré à gauche de 'Mmath::AssemblyMath' quand aucune variable n'est déclarée
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(44,42): warning C4305: 'argument' : troncation de 'double' à 'const float'
+  LowLevelProg.vcxproj -> C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\x64\Debug\LowLevelProg.exe
