@@ -87,6 +87,30 @@ namespace Mmath
 		return ToDegrees(acos(AVector2::DotProduct(_a, _b) / (_a.GetMagnitude() * _b.GetMagnitude())));
 	}
 
+	float AVector2::GetDistance(const AVector2& _first, const AVector2& _second)
+	{
+		float farray[2]{ 0.0f,0.0f };
+		float result = 0.0f;
+
+		_mm_store_ps(&farray[0], _mm_sub_ps(_mm_load_ps(&_first.x), _mm_load_ps(&_second.x)));
+		_mm_store_ps(&farray[0], _mm_mul_ps(_mm_load_ps(&farray[0]), _mm_load_ps(&farray[0])));
+		_mm_store_ps(&result, _mm_add_ss(_mm_load_ss(&farray[0]), _mm_load_ss(&farray[1])));
+
+		return sqrtf(result);
+	}
+
+	float AVector2::GetDistance(const AVector2& _vec2) const
+	{
+		float farray[2]{0.0f,0.0f};
+		float result = 0.0f;
+
+		_mm_store_ps(&farray[0], _mm_sub_ps(_mm_load_ps(&x), _mm_load_ps(&_vec2.x)));
+		_mm_store_ps(&farray[0], _mm_mul_ps(_mm_load_ps(&farray[0]), _mm_load_ps(&farray[0])));
+		_mm_store_ps(&result, _mm_add_ss(_mm_load_ss(&farray[0]), _mm_load_ss(&farray[1])));
+
+		return sqrtf(result);
+	}
+
 	float AVector2::GetMagnitude() const
 	{
 		float toReturn = 0.f;
@@ -96,6 +120,17 @@ namespace Mmath
 		//Sub the result of x*x and y*y that should be in the array
 		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]), _mm_load_ss(&mulResults[1])));
 		return sqrtf(toReturn);
+	}
+
+	float AVector2::GetSquareMagnitude() const
+	{
+		float toReturn = 0.f;
+		float mulResults[2]{ 0.f, 0.f };
+		// multiply x with x and y with y and record it in the mulResults array
+		_mm_store_ps(&mulResults[0], _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&x)));
+		//Sub the result of x*x and y*y that should be in the array
+		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]), _mm_load_ss(&mulResults[1])));
+		return toReturn;
 	}
 
 	AVector2 AVector2::GetNormalized() const
@@ -117,6 +152,20 @@ namespace Mmath
 		return toReturn;
 	}
 
+	float AVector2::operator,(const AVector2& _otherVector) const
+	{
+		return DotProduct(_otherVector);
+	}
+
+	AVector2 AVector2::operator*(const AVector2& _otherVector) const
+	{
+		AVector2 newVector;
+
+		_mm_store_ps(&newVector.x, _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&_otherVector.x)));
+
+		return newVector;
+	}
+
 	AVector2 AVector2::operator*(float _value) const
 	{
 		AVector2 newVector = *this;
@@ -125,6 +174,11 @@ namespace Mmath
 		_mm_store_ps(&newVector.x, _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&values[0])));
 
 		return newVector;
+	}
+
+	void AVector2::operator*=(const AVector2& _otherVector)
+	{
+		_mm_store_ps(&x, _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&_otherVector.x)));
 	}
 
 	AVector2 AVector2::operator/(float _value) const
