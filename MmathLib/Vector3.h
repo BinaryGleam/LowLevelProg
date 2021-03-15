@@ -11,7 +11,6 @@ namespace CMath
 
 		float s_x = 0.0f, s_y = 0.0f, s_z = 0.0f;
 
-
 		/* Static variables */
 
 		static Vector3 Zero();
@@ -23,18 +22,15 @@ namespace CMath
 		static Vector3 Forward();
 		static Vector3 Back();
 
-
 		/* Constructors */
 
 		Vector3(const float _x = 0.0f, const float _y = 0.0f, const float _z = 0.0f);
 		Vector3(const Vector3& _vec3);
 		Vector3(const Vector2& _vec2, const float _z = 0.0f);
 
-
 		/* Destructor */
 
 		~Vector3() = default;
-
 
 		/* Methods */
 
@@ -50,7 +46,6 @@ namespace CMath
 		static Vector3 Min(Vector3 _a, Vector3 _b);
 		static Vector3 MoveTowards(Vector3 _current, Vector3 _target, float _speed);
 
-
 		/* Getters */
 
 		static float GetDistance2D(const Vector3& _first, const Vector3& _second);
@@ -60,7 +55,6 @@ namespace CMath
 		float GetMagnitude() const;
 		float GetSquareMagnitude() const;
 		Vector3 GetNormalized() const;
-
 
 		/* Operators */
 

@@ -27,7 +27,6 @@ namespace CMath
 		std::cout << "RESULT" << std::endl;
 		std::cout << "\n\n\n";
 
-
 		Out::Separate(false, "VECTOR 2");
 		UnitTest::Vector2AllTest();
 
@@ -44,10 +43,9 @@ namespace CMath
 		UnitTest::QuaternionAllTest();
 
 		Out::Separate(true, "");
-		if(_pause)
+		if (_pause)
 			system("pause");
 	}
-
 
 	/* Vector2 */
 
@@ -63,7 +61,7 @@ namespace CMath
 		Out::ChangeColor(Out::MAGENTA);
 		std::cout << "Vector2(x, y)\n\n";
 		Color_White
-		std::cout << "\nVector2 Constructors Test:" << std::endl;
+			std::cout << "\nVector2 Constructors Test:" << std::endl;
 		Color_Cyan
 			Vector2 v1;
 		Vector2 v2(5, 9);
@@ -73,9 +71,9 @@ namespace CMath
 	const void UnitTest::Vector2Methods()
 	{
 		Color_White
-		std::cout << "\nVector2 Methods Test:" << std::endl;
+			std::cout << "\nVector2 Methods Test:" << std::endl;
 		Color_Yellow
-		Vector2 v1(1, 9);
+			Vector2 v1(1, 9);
 		Vector2 v2(7, 3);
 		std::cout << "Vector v1:\t\t\t" << v1;
 		std::cout << "Vector v2:\t\t\t" << v2;
@@ -112,9 +110,9 @@ namespace CMath
 	const void UnitTest::Vector2Getters()
 	{
 		Color_White
-		std::cout << "\nVector2 Getters Test:" << std::endl;
+			std::cout << "\nVector2 Getters Test:" << std::endl;
 		Color_Yellow
-		Vector2 v1(2, 9);
+			Vector2 v1(2, 9);
 		Vector2 v2(7, 3);
 		std::cout << "Vector v1:\t\t" << v1;
 		std::cout << "Vector v2:\t\t" << v2;
@@ -138,9 +136,9 @@ namespace CMath
 	const void UnitTest::Vector2Operators()
 	{
 		Color_White
-		std::cout << "\nVector2 Operators Test:" << std::endl;
+			std::cout << "\nVector2 Operators Test:" << std::endl;
 		Color_Yellow
-		Vector2 v1(3, 7);
+			Vector2 v1(3, 7);
 		Vector2 v2(9, 1);
 		std::cout << "Vector v1:\t\t\t\t" << v1;
 		std::cout << "Vector v2:\t\t\t\t" << v2;
@@ -178,7 +176,6 @@ namespace CMath
 			std::cout << 3 / Vector2(3, 3);
 	}
 
-
 	/* Vector3 */
 
 	const void UnitTest::Vector3AllTest()
@@ -193,7 +190,7 @@ namespace CMath
 		Out::ChangeColor(Out::MAGENTA);
 		std::cout << "Vector3(x, y, z)\n\n";
 		Color_White
-		std::cout << "\nVector3 Constructors Test:" << std::endl;
+			std::cout << "\nVector3 Constructors Test:" << std::endl;
 		Color_Cyan
 			Vector3 v1;
 		Vector3 v2(5, 9, 1);
@@ -204,9 +201,9 @@ namespace CMath
 	const void UnitTest::Vector3Methods()
 	{
 		Color_White
-		std::cout << "\nVector3 Methods Test:" << std::endl;
+			std::cout << "\nVector3 Methods Test:" << std::endl;
 		Color_Yellow
-		Vector3 v1(1, 9, 3);
+			Vector3 v1(1, 9, 3);
 		Vector3 v2(7, 3, 9);
 		std::cout << "Vector v1:\t\t\t" << v1;
 		std::cout << "Vector v2:\t\t\t" << v2;
@@ -247,9 +244,9 @@ namespace CMath
 	const void UnitTest::Vector3Getters()
 	{
 		Color_White
-		std::cout << "\nVector3 Getters Test:" << std::endl;
+			std::cout << "\nVector3 Getters Test:" << std::endl;
 		Color_Yellow
-		Vector3 v1(2, 9, 3);
+			Vector3 v1(2, 9, 3);
 		Vector3 v2(7, 3, 9);
 		std::cout << "Vector v1:\t\t" << v1;
 		std::cout << "Vector v2:\t\t" << v2;
@@ -277,9 +274,9 @@ namespace CMath
 	const void UnitTest::Vector3Operators()
 	{
 		Color_White
-		std::cout << "\nVector3 Operators Test:" << std::endl;
+			std::cout << "\nVector3 Operators Test:" << std::endl;
 		Color_Yellow
-		Vector3 v1(3, 7, 9);
+			Vector3 v1(3, 7, 9);
 		Vector3 v2(9, 1, 7);
 		std::cout << "Vector v1:\t\t\t\t" << v1;
 		std::cout << "Vector v2:\t\t\t\t" << v2;
@@ -333,7 +330,6 @@ namespace CMath
 			std::cout << Vector2(4, 9) - v1;
 	}
 
-
 	/* Vector4 */
 
 	const void UnitTest::Vector4AllTest()
@@ -348,7 +344,7 @@ namespace CMath
 		Out::ChangeColor(Out::MAGENTA);
 		std::cout << "Vector4(x, y, z, w)\n\n";
 		Color_White
-		std::cout << "\nVector4 Constructors Test:" << std::endl;
+			std::cout << "\nVector4 Constructors Test:" << std::endl;
 		Color_Cyan
 			Vector4 v1;
 		Vector4 v2(5, 9, 1, 3);
@@ -359,9 +355,9 @@ namespace CMath
 	const void UnitTest::Vector4Methods()
 	{
 		Color_White
-		std::cout << "\nVector4 Methods Test:" << std::endl;
+			std::cout << "\nVector4 Methods Test:" << std::endl;
 		Color_Yellow
-		Vector4 v1(1, 9, 3, 7);
+			Vector4 v1(1, 9, 3, 7);
 		Vector4 v2(7, 3, 9, 1);
 		std::cout << "Vector v1:\t\t\t" << v1;
 		std::cout << "Vector v2:\t\t\t" << v2;
@@ -391,9 +387,9 @@ namespace CMath
 	const void UnitTest::Vector4Getters()
 	{
 		Color_White
-		std::cout << "\nVector4 Getters Test:" << std::endl;
+			std::cout << "\nVector4 Getters Test:" << std::endl;
 		Color_Yellow
-		Vector4 v1(2, 9, 3, 7);
+			Vector4 v1(2, 9, 3, 7);
 		Vector4 v2(7, 3, 9, 2);
 		std::cout << "Vector v1:\t\t" << v1;
 		std::cout << "Vector v2:\t\t" << v2;
@@ -421,9 +417,9 @@ namespace CMath
 	const void UnitTest::Vector4Operators()
 	{
 		Color_White
-		std::cout << "\nVector4 Operators Test:" << std::endl;
+			std::cout << "\nVector4 Operators Test:" << std::endl;
 		Color_Yellow
-		Vector4 v1(3, 7, 9, 1);
+			Vector4 v1(3, 7, 9, 1);
 		Vector4 v2(9, 1, 7, 3);
 		std::cout << "Vector v1:\t\t\t\t" << v1;
 		std::cout << "Vector v2:\t\t\t\t" << v2;
@@ -477,7 +473,6 @@ namespace CMath
 			std::cout << Vector3(4, 9, 7) - v1;
 	}
 
-
 	/* Matrix */
 
 	const void UnitTest::MatrixAllTest()
@@ -491,7 +486,7 @@ namespace CMath
 	const void UnitTest::MatrixConstructors()
 	{
 		Color_White
-		std::cout << "\nMatrix Constructors Test:" << std::endl;
+			std::cout << "\nMatrix Constructors Test:" << std::endl;
 		Color_Cyan
 			Matrix m1;
 		float temp[16];
@@ -504,7 +499,7 @@ namespace CMath
 	const void UnitTest::MatrixMethods()
 	{
 		Color_White
-		std::cout << "\nMatrix Methods Test:" << std::endl;
+			std::cout << "\nMatrix Methods Test:" << std::endl;
 		Matrix m1;
 		float temp[16];
 		for (int i = 0; i < 16; i++)
@@ -514,7 +509,7 @@ namespace CMath
 				temp[i] = 4;
 		Matrix m2(temp);
 		Color_Yellow
-		std::cout << "Matrix m1: " << m1;
+			std::cout << "Matrix m1: " << m1;
 		std::cout << "Matrix m2: " << m2;
 		m1.SetTranslation(Vector3().Right());
 		Color_Green
@@ -526,12 +521,11 @@ namespace CMath
 			std::cout << "Transpose (m2): ";
 		Color_Cyan
 			std::cout << m2;
-
 	}
 	const void UnitTest::MatrixStaticMethods()
 	{
 		Color_White
-		std::cout << "\nMatrix Static Methods Test:" << std::endl;
+			std::cout << "\nMatrix Static Methods Test:" << std::endl;
 		Color_Green
 			std::cout << "MatrixIdentity: ";
 		Color_Cyan
@@ -552,9 +546,9 @@ namespace CMath
 	const void UnitTest::MatrixGetters()
 	{
 		Color_White
-		std::cout << "\nMatrix Getters Test:" << std::endl;
+			std::cout << "\nMatrix Getters Test:" << std::endl;
 		Color_Yellow
-		float temp[16];
+			float temp[16];
 		temp[0] = 5;
 		temp[1] = 6;
 		temp[2] = 7;
@@ -589,7 +583,7 @@ namespace CMath
 	const void UnitTest::MatrixOperators()
 	{
 		Color_White
-		std::cout << "\nMatrix Operators Test:" << std::endl;
+			std::cout << "\nMatrix Operators Test:" << std::endl;
 		float temp1[16];
 		for (int i = 0; i < 16; i++)
 			if (i % 2)
@@ -605,7 +599,7 @@ namespace CMath
 				temp2[i] = 3;
 		Matrix m2(temp2);
 		Color_Yellow
-		std::cout << "Matrix m1: " << m1;
+			std::cout << "Matrix m1: " << m1;
 		std::cout << "Matrix m2: " << m2;
 		Color_Green
 			std::cout << "Matrix*float: ";
@@ -625,7 +619,6 @@ namespace CMath
 			std::cout << m2 * Vector4(3, 7, 9, 1);
 	}
 
-
 	/* Quaternion */
 
 	const void UnitTest::QuaternionAllTest()
@@ -641,7 +634,7 @@ namespace CMath
 		Out::ChangeColor(Out::MAGENTA);
 		std::cout << "Quaternion(w, x, y ,z)\n\n";
 		Color_White
-		std::cout << "\nQuaternion Constructors Test:" << std::endl;
+			std::cout << "\nQuaternion Constructors Test:" << std::endl;
 		Color_Cyan
 			Quaternion q1;
 		Quaternion q2(1, 2, 3, 4);
@@ -652,12 +645,12 @@ namespace CMath
 	const void UnitTest::QuaternionMethods()
 	{
 		Color_White
-		std::cout << "\nQuaternion Methods Test:" << std::endl;
+			std::cout << "\nQuaternion Methods Test:" << std::endl;
 		Quaternion q1(1, 5, 9, 4);
 		Quaternion q2(1, 7, 28, 0.12f);
 		Quaternion q3(10, 42, 3, 0);
 		Color_Yellow
-		std::cout << "Quaternion q1:\t\t\t" << q1;
+			std::cout << "Quaternion q1:\t\t\t" << q1;
 		std::cout << "Quaternion q2:\t\t\t" << q2;
 		std::cout << "Quaternion q3:\t\t\t" << q3;
 		float temp = q1.DotProduct(q2);
@@ -683,9 +676,9 @@ namespace CMath
 	const void UnitTest::QuaternionStaticMethods()
 	{
 		Color_White
-		std::cout << "\nQuaternion Static Methods Test:" << std::endl;
+			std::cout << "\nQuaternion Static Methods Test:" << std::endl;
 		Color_Yellow
-		Quaternion q1(11, 2.3f, 56, 7);
+			Quaternion q1(11, 2.3f, 56, 7);
 		Quaternion q2(0, 98, 63, 1.3f);
 		Vector3 v(5, 6, 12);
 		std::cout << "Quaternion q1:\t\t\t" << q1;
@@ -708,15 +701,15 @@ namespace CMath
 		Out::ChangeColor(Out::GREEN);
 		std::cout << "|->\tFor I(30):\t\t";
 		Color_Cyan
-		std::cout << Quaternion::I(30);
+			std::cout << Quaternion::I(30);
 		Out::ChangeColor(Out::GREEN);
 		std::cout << "|->\tFor J(60):\t\t";
 		Color_Cyan
-		std::cout << Quaternion::J(60);
+			std::cout << Quaternion::J(60);
 		Out::ChangeColor(Out::GREEN);
 		std::cout << "|->\tFor K(90):\t\t";
 		Color_Cyan
-		std::cout << Quaternion::K(90);
+			std::cout << Quaternion::K(90);
 		Color_Green
 			std::cout << "Euler (v):\t\t\t";
 		Color_Cyan
@@ -737,9 +730,9 @@ namespace CMath
 	const void UnitTest::QuaternionGetters()
 	{
 		Color_White
-		std::cout << "\nQuaternion Getters Test:" << std::endl;
+			std::cout << "\nQuaternion Getters Test:" << std::endl;
 		Color_Yellow
-		Quaternion q1(6.8f, 56, 41, 11);
+			Quaternion q1(6.8f, 56, 41, 11);
 		std::cout << "Base Quaternion:\t" << q1;
 		Color_Green
 			std::cout << "Real:\t\t\t";
@@ -774,22 +767,22 @@ namespace CMath
 	const void UnitTest::QuaternionOperators()
 	{
 		Color_White
-		std::cout << "\nQuaternion Operators Test:" << std::endl;
+			std::cout << "\nQuaternion Operators Test:" << std::endl;
 		Quaternion q1(1, 2, 3, 4);
 		Quaternion q2(4, 1, 5, 2);
 		Vector3 v1(4, 18, 9);
 		Color_Yellow
-		std::cout << "Quaternion q1:\t\t\t\t" << q1;
+			std::cout << "Quaternion q1:\t\t\t\t" << q1;
 		std::cout << "Quaternion q2:\t\t\t\t" << q2;
 		std::cout << "Vector3 v1:\t\t\t\t" << v1;
 		Color_Green
 			std::cout << "Quaternion*Vector3 (q1*v1):\t\t";
 		Color_Cyan
-			std::cout << q1*v1;
+			std::cout << q1 * v1;
 		Color_Green
 			std::cout << "Quaternion*Quaternion (q1*q2):\t\t";
 		Color_Cyan
-			std::cout << q1*q2;
+			std::cout << q1 * q2;
 		Color_Green
 			std::cout << "Quaternion*float (q1*2):\t\t";
 		Color_Cyan

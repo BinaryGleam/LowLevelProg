@@ -14,7 +14,6 @@ namespace CMath
 		: s_w{ _vector.s_w }, s_x{ _vector.s_x }, s_y{ _vector.s_y }, s_z{ _vector.s_z }
 	{}
 
-
 	/* Methods */
 
 	Quaternion Quaternion::Conjugate() const
@@ -39,12 +38,11 @@ namespace CMath
 		Normalize();
 		s_rotationMatrix =
 			Matrix(
-				{ 1 + (-2 * ((s_y*s_y) + (s_z*s_z))),	(2 * s_x*s_y) - (2 * s_w*s_z),		(2 * s_x*s_z) + (2 * s_w*s_y),		0,
-				(2 * s_x*s_y) + (2 * s_w*s_z),			1 + (-2 * ((s_x*s_x) + (s_z*s_z))),	(2 * s_y*s_z) - (2 * s_w*s_x),		0,
-				(2 * s_x*s_z) - (2 * s_w*s_y),			(2 * s_y*s_z) + (2 * s_w*s_x),		1 + (-2 * ((s_x*s_x) + (s_y*s_y))),	0,
+				{ 1 + (-2 * ((s_y * s_y) + (s_z * s_z))),	(2 * s_x * s_y) - (2 * s_w * s_z),		(2 * s_x * s_z) + (2 * s_w * s_y),		0,
+				(2 * s_x * s_y) + (2 * s_w * s_z),			1 + (-2 * ((s_x * s_x) + (s_z * s_z))),	(2 * s_y * s_z) - (2 * s_w * s_x),		0,
+				(2 * s_x * s_z) - (2 * s_w * s_y),			(2 * s_y * s_z) + (2 * s_w * s_x),		1 + (-2 * ((s_x * s_x) + (s_y * s_y))),	0,
 				0,										0,									0,									1 });
 	}
-
 
 	/* Statics Methods */
 
@@ -69,7 +67,7 @@ namespace CMath
 	}
 	Quaternion Quaternion::Lerp(const Quaternion& _from, const Quaternion& _to, float _speed)
 	{
-		return (_from*(1 - _speed) + _to * _speed).GetNormalized();
+		return (_from * (1 - _speed) + _to * _speed).GetNormalized();
 	}
 	Quaternion Quaternion::Slerp(const Quaternion& _from, const Quaternion& _to, float _speed)
 	{
@@ -87,7 +85,7 @@ namespace CMath
 		if (dot < 0.95f)
 		{
 			float angle = acosf(dot);
-			return (_from*sinf(angle*(1 - _speed)) + q * sinf(angle*_speed)) / sinf(angle);
+			return (_from * sinf(angle * (1 - _speed)) + q * sinf(angle * _speed)) / sinf(angle);
 		}
 		else
 			return Quaternion().Lerp(_from, q, _speed);	//If the angle is small, use linear interpolation
@@ -203,7 +201,6 @@ namespace CMath
 		return ToDegrees(atan2(c.GetImaginary().GetMagnitude(), c.GetReal()) * 2);
 	}
 
-
 	/* Getters */
 
 	float Quaternion::GetReal()
@@ -212,11 +209,11 @@ namespace CMath
 	}
 	float Quaternion::GetMagnitude() const
 	{
-		return sqrtf((s_w*s_w) + (s_x*s_x) + (s_y*s_y) + (s_z*s_z));
+		return sqrtf((s_w * s_w) + (s_x * s_x) + (s_y * s_y) + (s_z * s_z));
 	}
 	float Quaternion::GetSquareMagnitude() const
 	{
-		return (s_w*s_w) + (s_x*s_x) + (s_y*s_y) + (s_z*s_z);
+		return (s_w * s_w) + (s_x * s_x) + (s_y * s_y) + (s_z * s_z);
 	}
 	Matrix& Quaternion::GetRotationMatrix()
 	{
@@ -272,7 +269,6 @@ namespace CMath
 		return ToDegrees(atan2f(siny, cosy));
 	}
 
-
 	/* Operators */
 
 	void Quaternion::operator*=(const Quaternion& _quaternion)
@@ -323,11 +319,11 @@ namespace CMath
 	}
 	Quaternion Quaternion::operator*(float _value)
 	{
-		return Quaternion(s_w*_value, s_x*_value, s_y*_value, s_z*_value);
+		return Quaternion(s_w * _value, s_x * _value, s_y * _value, s_z * _value);
 	}
 	Quaternion Quaternion::operator*(float _value) const
 	{
-		return Quaternion(s_w*_value, s_x*_value, s_y*_value, s_z*_value);
+		return Quaternion(s_w * _value, s_x * _value, s_y * _value, s_z * _value);
 	}
 	Quaternion Quaternion::operator/(float _value)
 	{
@@ -353,12 +349,11 @@ namespace CMath
 		return Quaternion{ -s_w, -s_x, -s_y, -s_z };
 	}
 
-
 	/* External Operators */
 
 	Quaternion operator*(float _value, const Quaternion& _quaternion)
 	{
-		return Quaternion(_quaternion.s_w*_value, _quaternion.s_x*_value, _quaternion.s_y*_value, _quaternion.s_z*_value);
+		return Quaternion(_quaternion.s_w * _value, _quaternion.s_x * _value, _quaternion.s_y * _value, _quaternion.s_z * _value);
 	}
 	std::ostream& operator<<(std::ostream& _outStream, const Quaternion& _quaternion)
 	{

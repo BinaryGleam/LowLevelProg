@@ -12,18 +12,15 @@ namespace CMath
 		float  s_w = 1.0f, s_x = 0.0f, s_y = 0.0f, s_z = 0.0f;
 		Matrix s_rotationMatrix;
 
-
 		/* Constructors */
 
 		Quaternion(float _w = 1.0f, float _x = 0.0f, float _y = 0.0f, float _z = 0.0f);
 		Quaternion(float _w, const Vector3& _vector);
 		Quaternion(const Vector4& _vector);
 
-
 		/* Destructor */
 
 		~Quaternion() = default;
-
 
 		/* Methods */
 
@@ -31,7 +28,6 @@ namespace CMath
 		float DotProduct(const Quaternion& _quaternion) const;
 		void Normalize();
 		void CreateRotationMatrix();
-
 
 		/* Statics Methods */
 
@@ -48,7 +44,6 @@ namespace CMath
 		static Quaternion Inverse(Quaternion _quaternion);
 		static float Angle(Quaternion _a, Quaternion _b);
 
-
 		/* Getters */
 
 		float GetReal();
@@ -62,7 +57,6 @@ namespace CMath
 		float GetRoll();
 		float GetPitch();
 		float GetYaw();
-
 
 		/* Operators */
 

@@ -23,7 +23,6 @@ namespace CMath
 			s_matrix[i] = _array[i];
 	}
 
-
 	/* Methods */
 
 	void Matrix::SetTranslation(const Vector3& _vector)
@@ -115,7 +114,6 @@ namespace CMath
 		return inverseMatrix;
 	}
 
-
 	/* Static Method */
 
 	Matrix Matrix::Identity()
@@ -200,7 +198,6 @@ namespace CMath
 		result[7] = _location.s_y;
 		result[11] = _location.s_z;
 
-
 		if (_transpose)
 			result.Transpose();
 
@@ -220,7 +217,6 @@ namespace CMath
 
 		return result;
 	}
-
 
 	/* Operators */
 
@@ -368,7 +364,6 @@ namespace CMath
 		}
 		return vecBuffer;
 	}
-
 
 	/* External Operators */
 

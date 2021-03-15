@@ -11,12 +11,10 @@ namespace CMath
 
 		float s_x = 0.0f, s_y = 0.0f, s_z = 0.0f, s_w = 1.0f;
 
-
 		/* Static variables */
 
 		static Vector4 Zero();
 		static Vector4 One();
-
 
 		/* Constructors */
 
@@ -24,11 +22,9 @@ namespace CMath
 		Vector4(const Vector4& _vec4);
 		Vector4(const Vector3& _vec3, const float _w = 1.0f);
 
-
 		/* Destructor */
 
 		~Vector4() = default;
-
 
 		/* Methods */
 
@@ -39,7 +35,6 @@ namespace CMath
 		static Vector4 Lerp(const Vector4& _from, const Vector4& _to, float _speed);
 		static Vector4 MoveTowards(Vector4 _current, Vector4 _target, float _speed);
 
-
 		/* Getters */
 		static float GetDistance2D(const Vector4& _first, const Vector4& _second);
 		static float GetDistance(const Vector4& _first, const Vector4& _second);
@@ -48,7 +43,6 @@ namespace CMath
 		float GetMagnitude() const;
 		float GetSquareMagnitude() const;
 		Vector4 GetNormalized() const;
-
 
 		/* Operators */
 

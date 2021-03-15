@@ -13,24 +13,20 @@ namespace CMath
 
 		float s_matrix[16];
 
-
 		/* Constructors */
 
 		Matrix();
 		Matrix(const Matrix& _matrix);
-		Matrix(const float (&_array)[16]);
-
+		Matrix(const float(&_array)[16]);
 
 		/* Destructor */
 
 		~Matrix() = default;
 
-
 		/* Methods */
 
 		void SetTranslation(const Vector3& _vector);
 		void Transpose();
-
 
 		/* Static Method */
 
@@ -44,13 +40,11 @@ namespace CMath
 		static Matrix CreateTransformMatrix(const Vector3& _location, const Vector3& _scale, Quaternion& _rotation, bool _transpose);
 		static Matrix CreateTransformMatrix(const Vector3& _location, const Vector3& _scale, Vector3& _rotation, bool _transpose);
 
-
 		/* Getters */
 
 		float GetDeterminant() const;
 		Matrix GetComatrix() const;
 		Matrix GetInverseMatrix() const;
-
 
 		/* Operators */
 

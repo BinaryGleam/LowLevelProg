@@ -13,7 +13,6 @@ namespace CMath
 		return Vector4(1.0f, 1.0f, 1.0f, 1.0f);
 	}
 
-
 	/* Constructors */
 
 	Vector4::Vector4(const float _x, const float _y, const float _z, const float _w)
@@ -27,7 +26,6 @@ namespace CMath
 	Vector4::Vector4(const Vector3& _vec3, const float _w)
 		: s_x{ _vec3.s_x }, s_y{ _vec3.s_y }, s_z{ _vec3.s_z }, s_w{ _w }
 	{}
-
 
 	/* Methods */
 
@@ -53,11 +51,11 @@ namespace CMath
 	}
 	float Vector4::DotProduct(const Vector4& _rhs) const
 	{
-		return ((s_x*_rhs.s_x) + (s_y*_rhs.s_y) + (s_z*_rhs.s_z));
+		return ((s_x * _rhs.s_x) + (s_y * _rhs.s_y) + (s_z * _rhs.s_z));
 	}
 	float Vector4::DotProduct(const Vector4& _lhs, const Vector4& _rhs)
 	{
-		return ((_lhs.s_x*_rhs.s_x) + (_lhs.s_y*_rhs.s_y) + (_lhs.s_z*_rhs.s_z));
+		return ((_lhs.s_x * _rhs.s_x) + (_lhs.s_y * _rhs.s_y) + (_lhs.s_z * _rhs.s_z));
 	}
 	Vector4 Vector4::Lerp(const Vector4& _from, const Vector4& _to, float _speed)
 	{
@@ -74,39 +72,38 @@ namespace CMath
 		return _current + temp / magnitude * _speed;
 	}
 
-
 	/* Getters */
 	float Vector4::GetDistance2D(const Vector4& _first, const Vector4& _second)
 	{
-		return sqrtf((_first.s_x - _second.s_x)*(_first.s_x - _second.s_x)
-			+ (_first.s_y - _second.s_y)*(_first.s_y - _second.s_y));
+		return sqrtf((_first.s_x - _second.s_x) * (_first.s_x - _second.s_x)
+			+ (_first.s_y - _second.s_y) * (_first.s_y - _second.s_y));
 	}
 	float Vector4::GetDistance(const Vector4& _first, const Vector4& _second)
 	{
-		return sqrtf((_first.s_x - _second.s_x)*(_first.s_x - _second.s_x)
-			+ (_first.s_y - _second.s_y)*(_first.s_y - _second.s_y)
-			+ (_first.s_z - _second.s_z)*(_first.s_z - _second.s_z)
-			+ (_first.s_w - _second.s_w)*(_first.s_w - _second.s_w));
+		return sqrtf((_first.s_x - _second.s_x) * (_first.s_x - _second.s_x)
+			+ (_first.s_y - _second.s_y) * (_first.s_y - _second.s_y)
+			+ (_first.s_z - _second.s_z) * (_first.s_z - _second.s_z)
+			+ (_first.s_w - _second.s_w) * (_first.s_w - _second.s_w));
 	}
 	float Vector4::GetDistance2D(const Vector4& _vec3) const
 	{
-		return sqrtf((s_x - _vec3.s_x)*(s_x - _vec3.s_x)
-			+ (s_y - _vec3.s_y)*(s_y - _vec3.s_y));
+		return sqrtf((s_x - _vec3.s_x) * (s_x - _vec3.s_x)
+			+ (s_y - _vec3.s_y) * (s_y - _vec3.s_y));
 	}
 	float Vector4::GetDistance(const Vector4& _vec3) const
 	{
-		return sqrtf((s_x - _vec3.s_x)*(s_x - _vec3.s_x)
-			+ (s_y - _vec3.s_y)*(s_y - _vec3.s_y)
-			+ (s_z - _vec3.s_z)*(s_z - _vec3.s_z)
-			+ (s_w - _vec3.s_w)*(s_w - _vec3.s_w));
+		return sqrtf((s_x - _vec3.s_x) * (s_x - _vec3.s_x)
+			+ (s_y - _vec3.s_y) * (s_y - _vec3.s_y)
+			+ (s_z - _vec3.s_z) * (s_z - _vec3.s_z)
+			+ (s_w - _vec3.s_w) * (s_w - _vec3.s_w));
 	}
 	float Vector4::GetMagnitude() const
 	{
-		return sqrtf(s_x*s_x + s_y*s_y + s_z*s_z + s_w*s_w);
+		return sqrtf(s_x * s_x + s_y * s_y + s_z * s_z + s_w * s_w);
 	}
 	float Vector4::GetSquareMagnitude() const
 	{
-		return s_x*s_x + s_y*s_y + s_z*s_z + s_w*s_w;
+		return s_x * s_x + s_y * s_y + s_z * s_z + s_w * s_w;
 	}
 	Vector4 Vector4::GetNormalized() const
 	{
@@ -114,7 +111,6 @@ namespace CMath
 
 		return Vector4(s_x / length, s_y / length, s_z / length, s_w / length);
 	}
-
 
 	/* Operators */
 	Vector4 Vector4::operator-() const
@@ -238,12 +234,11 @@ namespace CMath
 			return false;
 	}
 
-
 	/* External Operators */
 
 	Vector4 operator*(float _f, const Vector4& _vector)
 	{
-		return Vector4(_vector.s_x*_f, _vector.s_y*_f, _vector.s_z*_f, _vector.s_w*_f);
+		return Vector4(_vector.s_x * _f, _vector.s_y * _f, _vector.s_z * _f, _vector.s_w * _f);
 	}
 	Vector4& operator*(float _f, Vector4& _vector)
 	{

@@ -11,6 +11,31 @@ namespace Mmath
 		return AVector2();
 	}
 
+	AVector2 AVector2::One()
+	{
+		return AVector2(1.0f,1.0f);
+	}
+
+	AVector2 AVector2::Up()
+	{
+		return AVector2(0.0f,1.0f);
+	}
+
+	AVector2 AVector2::Down()
+	{
+		return AVector2(0.0f,-1.0f);
+	}
+
+	AVector2 AVector2::Right()
+	{
+		return AVector2(1.0f,0.0f);
+	}
+
+	AVector2 AVector2::Left()
+	{
+		return AVector2(-1.0f,0.0f);
+	}
+
 	/* Constructors */
 	AVector2::AVector2(const float _x, const float _y)
 		: x{ _x }, y{ _y }
@@ -19,6 +44,12 @@ namespace Mmath
 	AVector2::AVector2(const AVector2& _vec2)
 		: x{ _vec2.x }, y{ _vec2.y }
 	{}
+
+	void AVector2::Normalize()
+	{
+		float length[2] = { GetMagnitude(), GetMagnitude() };
+		_mm_store_ps(&x, _mm_div_ps(_mm_load_ps(&x), _mm_load_ps(&length[0])));
+	}
 
 	/* Methods */
 	float AVector2::DotProduct(const AVector2& _rhs) const
@@ -31,6 +62,17 @@ namespace Mmath
 		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]),_mm_load_ss(&mulResults[1])));
 		//We SHOULD have our dotProduct
 		return toReturn;
+	}
+
+	float AVector2::GetMagnitude() const
+	{
+		float toReturn = 0.f;
+		float mulResults[2]{ 0.f, 0.f };
+		// multiply x with x and y with y and record it in the mulResults array
+		_mm_store_ps(&mulResults[0], _mm_mul_ps(_mm_load_ps(&x), _mm_load_ps(&x)));
+		//Sub the result of x*x and y*y that should be in the array
+		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]), _mm_load_ss(&mulResults[1])));
+		return sqrtf(toReturn);
 	}
 
 	/* Operators */

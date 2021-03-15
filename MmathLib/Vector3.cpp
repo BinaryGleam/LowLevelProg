@@ -37,7 +37,6 @@ namespace CMath
 		return Vector3(0.0f, 0.0f, -1.0f);
 	}
 
-
 	/* Constructors */
 
 	Vector3::Vector3(const float _x, const float _y, const float _z)
@@ -52,7 +51,6 @@ namespace CMath
 		: s_x{ _vec2.x }, s_y{ _vec2.y }, s_z{ _z }
 	{}
 
-	
 	/* Methods */
 
 	void Vector3::Normalize()
@@ -97,11 +95,11 @@ namespace CMath
 	}
 	float Vector3::DotProduct(const Vector3& _rhs) const
 	{
-		return ((s_x*_rhs.s_x) + (s_y*_rhs.s_y) + (s_z*_rhs.s_z));
+		return ((s_x * _rhs.s_x) + (s_y * _rhs.s_y) + (s_z * _rhs.s_z));
 	}
 	float Vector3::DotProduct(const Vector3& _lhs, const Vector3& _rhs)
 	{
-		return ((_lhs.s_x*_rhs.s_x) + (_lhs.s_y*_rhs.s_y) + (_lhs.s_z*_rhs.s_z));
+		return ((_lhs.s_x * _rhs.s_x) + (_lhs.s_y * _rhs.s_y) + (_lhs.s_z * _rhs.s_z));
 	}
 	Vector3 Vector3::Lerp(const Vector3& _from, const Vector3& _to, float _speed)
 	{
@@ -109,7 +107,7 @@ namespace CMath
 	}
 	float Vector3::Angle(Vector3 _a, Vector3 _b)
 	{
-		return ToDegrees(acos(Vector3::DotProduct(_a, _b) / (_a.GetMagnitude()*_b.GetMagnitude())));
+		return ToDegrees(acos(Vector3::DotProduct(_a, _b) / (_a.GetMagnitude() * _b.GetMagnitude())));
 	}
 	Vector3 Vector3::Max(Vector3 _a, Vector3 _b)
 	{
@@ -164,38 +162,37 @@ namespace CMath
 		return _current + temp / magnitude * _speed;
 	}
 
-
 	/* Getters */
 
 	float Vector3::GetDistance2D(const Vector3& _first, const Vector3& _second)
 	{
-		return sqrtf((_first.s_x - _second.s_x)*(_first.s_x - _second.s_x)
-			+ (_first.s_y - _second.s_y)*(_first.s_y - _second.s_y));
+		return sqrtf((_first.s_x - _second.s_x) * (_first.s_x - _second.s_x)
+			+ (_first.s_y - _second.s_y) * (_first.s_y - _second.s_y));
 	}
 	float Vector3::GetDistance(const Vector3& _first, const Vector3& _second)
 	{
-		return sqrtf((_first.s_x - _second.s_x)*(_first.s_x - _second.s_x)
-			+ (_first.s_y - _second.s_y)*(_first.s_y - _second.s_y)
-			+ (_first.s_z - _second.s_z)*(_first.s_z - _second.s_z));
+		return sqrtf((_first.s_x - _second.s_x) * (_first.s_x - _second.s_x)
+			+ (_first.s_y - _second.s_y) * (_first.s_y - _second.s_y)
+			+ (_first.s_z - _second.s_z) * (_first.s_z - _second.s_z));
 	}
 	float Vector3::GetDistance2D(const Vector3& _vec3) const
 	{
-		return sqrtf((s_x - _vec3.s_x)*(s_x - _vec3.s_x)
-			+ (s_y - _vec3.s_y)*(s_y - _vec3.s_y));
+		return sqrtf((s_x - _vec3.s_x) * (s_x - _vec3.s_x)
+			+ (s_y - _vec3.s_y) * (s_y - _vec3.s_y));
 	}
 	float Vector3::GetDistance(const Vector3& _vec3) const
 	{
-		return sqrtf((s_x - _vec3.s_x)*(s_x - _vec3.s_x)
-			+ (s_y - _vec3.s_y)*(s_y - _vec3.s_y)
-			+ (s_z - _vec3.s_z)*(s_z - _vec3.s_z));
+		return sqrtf((s_x - _vec3.s_x) * (s_x - _vec3.s_x)
+			+ (s_y - _vec3.s_y) * (s_y - _vec3.s_y)
+			+ (s_z - _vec3.s_z) * (s_z - _vec3.s_z));
 	}
 	float Vector3::GetMagnitude() const
 	{
-		return sqrtf(s_x*s_x + s_y*s_y + s_z*s_z);
+		return sqrtf(s_x * s_x + s_y * s_y + s_z * s_z);
 	}
 	float Vector3::GetSquareMagnitude() const
 	{
-		return s_x*s_x + s_y*s_y + s_z*s_z;
+		return s_x * s_x + s_y * s_y + s_z * s_z;
 	}
 	Vector3 Vector3::GetNormalized() const
 	{
@@ -203,7 +200,6 @@ namespace CMath
 
 		return Vector3(s_x / length, s_y / length, s_z / length);
 	}
-
 
 	/* Operators */
 
@@ -234,7 +230,7 @@ namespace CMath
 	{
 		Vector3 v3(s_x / _otherVector.s_x, s_y / _otherVector.s_y, s_z / _otherVector.s_z);
 		if (_otherVector.s_x == 0)
-			v3.s_x = 0;	
+			v3.s_x = 0;
 		if (_otherVector.s_y == 0)
 			v3.s_y = 0;
 		if (_otherVector.s_z == 0)
@@ -333,12 +329,11 @@ namespace CMath
 			return false;
 	}
 
-
 	/* External Operators */
 
 	Vector3 operator*(float _f, const Vector3& _vector)
 	{
-		return Vector3(_vector.s_x*_f, _vector.s_y*_f, _vector.s_z*_f);
+		return Vector3(_vector.s_x * _f, _vector.s_y * _f, _vector.s_z * _f);
 	}
 	Vector3& operator*(float _f, Vector3& _vector)
 	{

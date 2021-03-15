@@ -20,7 +20,6 @@ namespace CMath
 		static const void Vector2Getters();
 		static const void Vector2Operators();
 
-
 		/* Vector3 */
 
 		static const void Vector3AllTest();
@@ -28,7 +27,6 @@ namespace CMath
 		static const void Vector3Methods();
 		static const void Vector3Getters();
 		static const void Vector3Operators();
-
 
 		/* Vector4 */
 
@@ -38,7 +36,6 @@ namespace CMath
 		static const void Vector4Getters();
 		static const void Vector4Operators();
 
-
 		/* Matrix */
 
 		static const void MatrixAllTest();
@@ -47,7 +44,6 @@ namespace CMath
 		static const void MatrixStaticMethods();
 		static const void MatrixGetters();
 		static const void MatrixOperators();
-
 
 		/* Quaternion */
 
@@ -78,7 +74,6 @@ namespace Log
 			MAGENTA = FOREGROUND_BLUE | FOREGROUND_RED | FOREGROUND_INTENSITY,
 			YELLOW = FOREGROUND_GREEN | FOREGROUND_RED | FOREGROUND_INTENSITY
 		};
-
 
 		/* Color Methods */
 
