@@ -64,6 +64,29 @@ namespace Mmath
 		return toReturn;
 	}
 
+	float AVector2::DotProduct(const AVector2& _lhs, const AVector2& _rhs)
+	{
+		float toReturn = 0.f;
+		float mulResults[2]{ 0.f, 0.f };
+		// multiply x with x and y with y and record it in the mulResults array
+		_mm_store_ps(&mulResults[0], _mm_mul_ps(_mm_load_ps(&_lhs.x), _mm_load_ps(&_rhs.x)));
+		//Sub the result of x*x and y*y that should be in the array
+		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]), _mm_load_ss(&mulResults[1])));
+		//We SHOULD have our dotProduct
+		return toReturn;
+	}
+
+	AVector2 AVector2::Lerp(const AVector2& _from, const AVector2& _to, float _speed)
+	{
+		return (1 - _speed) * _from + _speed * _to;
+	}
+
+	float AVector2::Angle(AVector2 _a, AVector2 _b)
+	{
+		//Ptetre genre faire fonction _mm pour toDegrees
+		return ToDegrees(acos(AVector2::DotProduct(_a, _b) / (_a.GetMagnitude() * _b.GetMagnitude())));
+	}
+
 	float AVector2::GetMagnitude() const
 	{
 		float toReturn = 0.f;
@@ -73,6 +96,14 @@ namespace Mmath
 		//Sub the result of x*x and y*y that should be in the array
 		_mm_store_ps(&toReturn, _mm_add_ss(_mm_load_ss(&mulResults[0]), _mm_load_ss(&mulResults[1])));
 		return sqrtf(toReturn);
+	}
+
+	AVector2 AVector2::GetNormalized() const
+	{
+		float length[2] = { GetMagnitude(), GetMagnitude() };
+		AVector2 toReturn;
+		_mm_store_ps(&toReturn.x, _mm_div_ps(_mm_load_ps(&x), _mm_load_ps(&length[0])));
+		return toReturn;
 	}
 
 	/* Operators */

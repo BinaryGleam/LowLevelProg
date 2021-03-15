@@ -1,6 +1,21 @@
 #pragma once
 #include <iostream>
 
+#ifndef M_PI
+#define M_PI       3.14159265358979323846f
+#endif
+#ifndef M_RAD
+#define M_RAD       M_PI / 180.0f
+#endif
+
+#ifndef ToDegrees
+#define ToDegrees(X) X*(180/M_PI)
+#endif
+
+#ifndef ToRads
+#define ToRads(X) X*(M_PI/180)
+#endif
+
 namespace Mmath
 {
 	struct AVector2
@@ -33,10 +48,6 @@ namespace Mmath
 		static float DotProduct(const AVector2& _lhs, const AVector2& _rhs);
 		static AVector2 Lerp(const AVector2& _from, const AVector2& _to, float _speed);
 		static float Angle(AVector2 _a, AVector2 _b);
-		static AVector2 Max(AVector2 _a, AVector2 _b);
-		static AVector2 Min(AVector2 _a, AVector2 _b);
-		static AVector2 MoveTowards(AVector2 _current, AVector2 _target, float _speed);
-
 
 		/* Getters */
 		static float GetDistance(const AVector2& _first, const AVector2& _second);
