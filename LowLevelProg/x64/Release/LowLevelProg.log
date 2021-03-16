@@ -5,7 +5,7 @@ C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\Quaternion
 C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\CustomMath.h(27,3): warning C4091: 'static ' : ignoré à gauche de 'CMath::CustomMath' quand aucune variable n'est déclarée
 C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(46,42): warning C4305: 'argument' : troncation de 'double' à 'const float'
   Génération de code en cours
-  1 of 42 functions ( 2.4%) were compiled, the rest were copied from previous compilation.
+  1 of 60 functions ( 1.7%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     1 functions had inline decision re-evaluated but remain unchanged
   Fin de la génération du code

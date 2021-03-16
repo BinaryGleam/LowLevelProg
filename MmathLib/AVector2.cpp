@@ -232,8 +232,31 @@ namespace Mmath
 
 	bool AVector2::operator==(const AVector2& _otherVector) const
 	{
-		return false;
+		return x == _otherVector.x && y == _otherVector.y;
 	}
+
+	bool AVector2::operator!=(const AVector2& _otherVector) const
+	{
+		return x == _otherVector.x && y == _otherVector.y;
+	}
+	bool AVector2::operator<(const AVector2& _otherVector) const
+	{
+		return GetMagnitude() < _otherVector.GetMagnitude();
+	}
+	bool AVector2::operator>(const AVector2& _otherVector) const
+	{
+		return GetMagnitude() > _otherVector.GetMagnitude();
+	}
+	bool AVector2::operator<=(const AVector2& _otherVector) const
+	{
+		return GetMagnitude() <= _otherVector.GetMagnitude();
+	}
+	bool AVector2::operator>=(const AVector2& _otherVector) const
+	{
+		return GetMagnitude() >= _otherVector.GetMagnitude();
+	}
+
+
 
 	AVector2 operator*(float _f, const AVector2& _vector)
 	{

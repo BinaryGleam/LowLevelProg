@@ -108,13 +108,239 @@ void Vec2Tests()
     I = C;
     std::cout << I << std::endl;
 
-    std::cout << std::endl << "Starting DotProduct test" << std::endl;
-    Vector2 Abis = Vector2(A.x,A.y);
+    Vector2 Abis = Vector2(A.x, A.y);
     Vector2 Bbis = Vector2(B.x, B.y);
-    std::cout << "Creating Abis and Bbis vector from " << A << " and " << B << std::endl;
+    Vector2 Cbis = Vector2(C.x, C.y);
+    Vector2 Dbis = Vector2(D.x, D.y);
+    Vector2 Ebis = Vector2(E.x, E.y);
+    Vector2 Fbis = Vector2(F.x, F.y);
+    Vector2 Gbis = Vector2(G.x, G.y);
+    Vector2 Hbis = Vector2(H.x, H.y);
+
+    std::cout << std::endl << "Creating normal vectors from MM vectors" << std::endl;
     std::cout << "Abis=" << Abis << " and Bbis=" << Bbis << std::endl;
+    std::cout << "Cbis=" << Cbis << " and Dbis=" << Dbis << std::endl;
+    std::cout << "Ebis=" << Ebis << " and Fbis=" << Fbis << std::endl;
+    std::cout << "Gbis=" << Gbis << " and Hbis=" << Hbis << std::endl;
+
+
+
+    std::cout << std::endl << "Starting mul test" << std::endl;
+
+    std::cout << "MM vectors" << std::endl;
+    std::cout << A << "*" << B << " becomes " << A * B << std::endl;
+    std::cout << C << "*" << D << " becomes " << C * D << std::endl;
+    std::cout << E << "*" << F << " becomes " << E * F << std::endl;
+    std::cout << G << "*" << H << " becomes " << G * H << std::endl;
+
+    std::cout << "Classic vectors" << std::endl;
+    std::cout << Abis << "*" << Bbis << " becomes " << Abis * Bbis << std::endl;
+    std::cout << Cbis << "*" << Dbis << " becomes " << Cbis * Dbis << std::endl;
+    std::cout << Ebis << "*" << Fbis << " becomes " << Ebis * Fbis << std::endl;
+    std::cout << Gbis << "*" << Hbis << " becomes " << Gbis * Hbis << std::endl;
+
+    std::cout << "MM vectors" << std::endl;
+    std::cout << A << "*=" << B << " becomes ";
+    A *= B;
+    std::cout << A << std::endl;
+
+    std::cout << C << "*=" << D << " becomes ";
+    C *= D;
+    std::cout << C << std::endl;
+
+    std::cout << E << "*=" << F << " becomes ";
+    E *= F;
+    std::cout << E << std::endl;
+
+    std::cout << G << "*=" << H << " becomes ";
+    G *= H;
+    std::cout << G << std::endl;
+
+    std::cout << "Classic vectors" << std::endl;
+    std::cout << Abis << "*=" << Bbis << " becomes ";
+    Abis *= Bbis;
+    std::cout << Abis << std::endl;
+
+    std::cout << Cbis << "*=" << Dbis << " becomes ";
+    Cbis *= Dbis;
+    std::cout << Cbis << std::endl;
+
+    std::cout << Ebis << "*=" << Fbis << " becomes ";
+    Ebis *= Fbis;
+    std::cout << Ebis << std::endl;
+
+    std::cout << Gbis << "*=" << Hbis << " becomes ";
+    Gbis *= Hbis;
+    std::cout << Gbis << std::endl;
+
+
+
+    std::cout << std::endl << "Starting DotProduct test" << std::endl;
+
     std::cout << Abis << "DOT" << Bbis << " becomes " << Abis.DotProduct(Bbis)<< std::endl;
     std::cout << A << "DOT" << B << " becomes " << A.DotProduct(B) << std::endl;
+    std::cout << Cbis << "DOT" << Dbis << " becomes " << Cbis.DotProduct(Dbis) << std::endl;
+    std::cout << C << "DOT" << D << " becomes " << C.DotProduct(D) << std::endl;
+    std::cout << Ebis << "DOT" << Fbis << " becomes " << Ebis.DotProduct(Fbis) << std::endl;
+    std::cout << E << "DOT" << F << " becomes " << E.DotProduct(F) << std::endl;
+    std::cout << Gbis << "DOT" << Hbis << " becomes " << Gbis.DotProduct(Hbis) << std::endl;
+    std::cout << G << "DOT" << H << " becomes " << G.DotProduct(H) << std::endl;
+
+    std::cout << Abis << "STATIC DOT" << Bbis << " becomes " << Vector2::DotProduct(Abis,Bbis) << std::endl;
+    std::cout << A << "STATIC DOT" << B << " becomes " << AVector2::DotProduct(A,B) << std::endl;
+    std::cout << Cbis << "STATIC DOT" << Dbis << " becomes " << Vector2::DotProduct(Cbis,Dbis) << std::endl;
+    std::cout << C << "STATIC DOT" << D << " becomes " << AVector2::DotProduct(C,D) << std::endl;
+    std::cout << Ebis << "STATIC DOT" << Fbis << " becomes " << Vector2::DotProduct(Ebis,Fbis) << std::endl;
+    std::cout << E << "STATIC DOT" << F << " becomes " << AVector2::DotProduct(E,F) << std::endl;
+    std::cout << Gbis << "STATIC DOT" << Hbis << " becomes " << Vector2::DotProduct(Gbis,Hbis) << std::endl;
+    std::cout << G << "STATIC DOT" << H << " becomes " << AVector2::DotProduct(G,H) << std::endl;
+
+    
+    
+    std::cout << std::endl << "Starting Magnitude test" << std::endl;
+
+    std::cout << Abis << " magnitude is " << Abis.GetMagnitude() << std::endl;
+    std::cout << A << " magnitude is " << A.GetMagnitude() << std::endl;
+    std::cout << Bbis << " magnitude is " << Bbis.GetMagnitude() << std::endl;
+    std::cout << B << " magnitude is " << B.GetMagnitude() << std::endl;
+    std::cout << Cbis << " magnitude is "<< Cbis.GetMagnitude() << std::endl;
+    std::cout << C << " magnitude is " << C.GetMagnitude() << std::endl;
+    std::cout << Dbis << " magnitude is " <<Dbis.GetMagnitude() << std::endl;
+    std::cout << D << " magnitude is " << D.GetMagnitude() << std::endl;
+    std::cout << Ebis << " magnitude is " <<Ebis.GetMagnitude() << std::endl;
+    std::cout << E << " magnitude is " << E.GetMagnitude() << std::endl;
+    std::cout << Fbis << " magnitude is " << Fbis.GetMagnitude() << std::endl;
+    std::cout << F << " magnitude is " << F.GetMagnitude() << std::endl;
+    std::cout << Gbis << " magnitude is " <<Gbis.GetMagnitude() << std::endl;
+    std::cout << G << " magnitude is " << G.GetMagnitude() << std::endl;
+    std::cout << Hbis << " magnitude is " << Hbis.GetMagnitude() << std::endl;
+    std::cout << H << " magnitude is " << H.GetMagnitude() << std::endl;
+
+
+    
+    std::cout << std::endl << "Starting Square Magnitude test" << std::endl;
+
+    std::cout << Abis << " SquareMagnitude is " << Abis.GetSquareMagnitude() << std::endl;
+    std::cout << A << " SquareMagnitude is " << A.GetSquareMagnitude() << std::endl;
+    std::cout << Bbis << " SquareMagnitude is " << Bbis.GetSquareMagnitude() << std::endl;
+    std::cout << B << " SquareMagnitude is " << B.GetSquareMagnitude() << std::endl;
+    std::cout << Cbis << " SquareMagnitude is " << Cbis.GetSquareMagnitude() << std::endl;
+    std::cout << C << " SquareMagnitude is " << C.GetSquareMagnitude() << std::endl;
+    std::cout << Dbis << " SquareMagnitude is " << Dbis.GetSquareMagnitude() << std::endl;
+    std::cout << D << " SquareMagnitude is " << D.GetSquareMagnitude() << std::endl;
+    std::cout << Ebis << " SquareMagnitude is " << Ebis.GetSquareMagnitude() << std::endl;
+    std::cout << E << " SquareMagnitude is " << E.GetSquareMagnitude() << std::endl;
+    std::cout << Fbis << " SquareMagnitude is " << Fbis.GetSquareMagnitude() << std::endl;
+    std::cout << F << " SquareMagnitude is " << F.GetSquareMagnitude() << std::endl;
+    std::cout << Gbis << " SquareMagnitude is " << Gbis.GetSquareMagnitude() << std::endl;
+    std::cout << G << " SquareMagnitude is " << G.GetSquareMagnitude() << std::endl;
+    std::cout << Hbis << " SquareMagnitude is " << Hbis.GetSquareMagnitude() << std::endl;
+    std::cout << H << " SquareMagnitude is " << H.GetSquareMagnitude() << std::endl;
+
+    
+    std::cout << std::endl << "Starting Distance test" << std::endl;
+
+    std::cout << Abis << " dist " << Bbis << " becomes " << Abis.GetDistance(Bbis) << std::endl;
+    std::cout << A << " dist " << B << " becomes " << A.GetDistance(B) << std::endl;
+    std::cout << Cbis << " dist " << Dbis << " becomes " << Cbis.GetDistance(Dbis) << std::endl;
+    std::cout << C << " dist " << D << " becomes " << C.GetDistance(D) << std::endl;
+    std::cout << Ebis << " dist " << Fbis << " becomes " << Ebis.GetDistance(Fbis) << std::endl;
+    std::cout << E << " dist " << F << " becomes " << E.GetDistance(F) << std::endl;
+    std::cout << Gbis << " dist " << Hbis << " becomes " << Gbis.GetDistance(Hbis) << std::endl;
+    std::cout << G << " dist " << H << " becomes " << G.GetDistance(H) << std::endl;
+
+    std::cout << Abis << "STATIC DIST" << Bbis << " becomes " << Vector2::GetDistance(Abis, Bbis) << std::endl;
+    std::cout << A << "STATIC DIST" << B << " becomes " << AVector2::GetDistance(A, B) << std::endl;
+    std::cout << Cbis << "STATIC DIST" << Dbis << " becomes " << Vector2::GetDistance(Cbis, Dbis) << std::endl;
+    std::cout << C << "STATIC DIST" << D << " becomes " << AVector2::GetDistance(C, D) << std::endl;
+    std::cout << Ebis << "STATIC DIST" << Fbis << " becomes " << Vector2::GetDistance(Ebis, Fbis) << std::endl;
+    std::cout << E << "STATIC DIST" << F << " becomes " << AVector2::GetDistance(E, F) << std::endl;
+    std::cout << Gbis << "STATIC DIST" << Hbis << " becomes " << Vector2::GetDistance(Gbis, Hbis) << std::endl;
+    std::cout << G << "STATIC DIST" << H << " becomes " << AVector2::GetDistance(G, H) << std::endl;
+
+    
+    std::cout << std::endl << "Starting Normal test" << std::endl;
+
+    std::cout << Abis << " normal is " << Abis.GetNormalized() << std::endl;
+    std::cout << A << " normal is " << A.GetNormalized() << std::endl;
+    std::cout << Bbis << " normal is " << Bbis.GetNormalized() << std::endl;
+    std::cout << B << " normal is " << B.GetNormalized() << std::endl;
+    std::cout << Cbis << " normal is " << Cbis.GetNormalized() << std::endl;
+    std::cout << C << " normal is " << C.GetNormalized() << std::endl;
+    std::cout << Dbis << " normal is " << Dbis.GetNormalized() << std::endl;
+    std::cout << D << " normal is " << D.GetNormalized() << std::endl;
+    std::cout << Ebis << " normal is " << Ebis.GetNormalized() << std::endl;
+    std::cout << E << " normal is " << E.GetNormalized() << std::endl;
+    std::cout << Fbis << " normal is " << Fbis.GetNormalized() << std::endl;
+    std::cout << F << " normal is " << F.GetNormalized() << std::endl;
+    std::cout << Gbis << " normal is " << Gbis.GetNormalized() << std::endl;
+    std::cout << G << " normal is " << G.GetNormalized() << std::endl;
+    std::cout << Hbis << " normal is " << Hbis.GetNormalized() << std::endl;
+    std::cout << H << " normal is " << H.GetNormalized() << std::endl;
+
+    std::cout << Abis << " normalized is ";
+    Abis.Normalize();
+    std::cout << Abis << std::endl;
+
+    std::cout << A << " normalized is ";
+    A.Normalize();
+    std::cout << A << std::endl;
+
+    std::cout << Bbis << " normalized is ";
+    Bbis.Normalize();
+    std::cout << Bbis << std::endl;
+
+    std::cout << B << " normalized is ";
+    B.Normalize();
+    std::cout << B << std::endl;
+
+    std::cout << Cbis << " normalized is ";
+    Cbis.Normalize();
+    std::cout << Cbis << std::endl;
+
+    std::cout << C << " normalized is ";
+    C.Normalize();
+    std::cout << C << std::endl;
+
+    std::cout << Dbis << " normalized is ";
+    Dbis.Normalize();
+    std::cout << Dbis << std::endl;
+
+    std::cout << D << " normalized is ";
+    D.Normalize();
+    std::cout << D << std::endl;
+
+    std::cout << Ebis << " normalized is ";
+    Ebis.Normalize();
+    std::cout << Ebis << std::endl;
+
+    std::cout << E << " normalized is ";
+    E.Normalize();
+    std::cout << E << std::endl;
+
+    std::cout << Fbis << " normalized is ";
+    Fbis.Normalize();
+    std::cout << Fbis << std::endl;
+
+    std::cout << F << " normalized is ";
+    F.Normalize();
+    std::cout << F << std::endl;
+
+    std::cout << Gbis << " normalized is ";
+    Gbis.Normalize();
+    std::cout << Gbis << std::endl;
+
+    std::cout << G << " normalized is ";
+    G.Normalize();
+    std::cout << G << std::endl;
+
+    std::cout << Hbis << " normalized is ";
+    Hbis.Normalize();
+    std::cout << Hbis << std::endl;
+
+    std::cout << H << " normalized is ";
+    H.Normalize();
+    std::cout << H << std::endl;
 }
 
 
