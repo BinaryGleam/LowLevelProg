@@ -2,6 +2,10 @@
 //
 
 #include <iostream>
+#include <cstdlib>
+#include <ctime>
+#include <ratio>
+#include <chrono>
 #include <xmmintrin.h>
 #include <AssemblyMath.h>
 #include <CustomMath.h>
@@ -35,6 +39,79 @@ void FloatTests()
     std::cout << five << " becomes " << Mmath::AssemblyMath::AAbs(five) << std::endl;
 
     std::cout << std::endl;
+}
+
+void Vec2PerfTests()
+{
+    std::cout << std::endl << "###PERF TESTS###" << std::endl;
+
+    int nbOfTests = INT64_MAX;
+    const int size = 225;
+
+    Vector2 ClassicVecs[size][size];
+    AVector2 MMVecs[size][size];
+
+    std::srand(std::time(nullptr));
+
+    //Vector Init
+    std::cout << std::endl << "Vec2 init" << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            float max = 100.0f;
+            float min = -100.0f;
+
+            float cX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
+            float cY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
+            float mX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
+            float mY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
+
+            ClassicVecs[i][j] = Vector2(cX,cY);
+            MMVecs[i][j] = AVector2(mX,mY);
+        }
+    }
+
+    
+
+    typedef std::chrono::steady_clock::time_point timePoint;
+
+    std::cout << std::endl << "Addition" << std::endl;
+    Vector2 result;
+
+    std::cout << "Classic" << std::endl << std::endl;
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                result = ClassicVecs[i][j] + ClassicVecs[i][j];
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << "s" << std::endl;
+
+    std::cout << "MM" << std::endl << std::endl;
+    AVector2 mResult;
+
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                mResult = MMVecs[i][j] + MMVecs[i][j];
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << "s" << std::endl;
 }
 
 void Vec2Tests()
@@ -341,6 +418,8 @@ void Vec2Tests()
     std::cout << H << " normalized is ";
     H.Normalize();
     std::cout << H << std::endl;
+
+    Vec2PerfTests();
 }
 
 
