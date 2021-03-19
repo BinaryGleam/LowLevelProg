@@ -319,6 +319,6 @@ namespace CMath
 
 	std::ostream& operator<<(std::ostream& _outStream, const Vector4& _vector)
 	{
-		return _outStream << "Vec4(" << _vector.s_x << ", " << _vector.s_y << ", " << _vector.s_z << ", " << _vector.s_w << ")\n";
+		return _outStream << "Vec4(" << _vector.s_x << ", " << _vector.s_y << ", " << _vector.s_z << ", " << _vector.s_w << ")";
 	}
 }

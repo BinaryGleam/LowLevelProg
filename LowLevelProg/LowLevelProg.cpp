@@ -41,45 +41,51 @@ void FloatTests()
     std::cout << std::endl;
 }
 
-void Vec2PerfTests()
+void Vec4PerfTests()
 {
     std::cout << std::endl << "###PERF TESTS###" << std::endl;
 
     int nbOfTests = INT64_MAX;
-    const int size = 225;
+    const int size = 100;
 
-    Vector2 ClassicVecs[size][size];
-    AVector2 MMVecs[size][size];
+    Vector4 ClassicVecs[size][size];
+    AVector4 MMVecs[size][size];
 
     std::srand(std::time(nullptr));
 
     //Vector Init
-    std::cout << std::endl << "Vec2 init" << std::endl;
+    std::cout << std::endl << "Vec4 init" << std::endl;
+    float max = 100.0f;
+    float min = -100.0f;
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
         {
-            float max = 100.0f;
-            float min = -100.0f;
+            
 
             float cX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
             float cY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
+            float cZ = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+            float cW = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
             float mX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
             float mY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
+            float mZ = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+            float mW = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
 
-            ClassicVecs[i][j] = Vector2(cX,cY);
-            MMVecs[i][j] = AVector2(mX,mY);
+            ClassicVecs[i][j] = Vector4(cX,cY, cZ, cW);
+            MMVecs[i][j] = AVector4(mX,mY,mZ,mW);
         }
     }
 
     
 
-    typedef std::chrono::steady_clock::time_point timePoint;
+    typedef std::chrono::high_resolution_clock::time_point timePoint;
 
     std::cout << std::endl << "Addition" << std::endl;
     Vector2 result;
 
-    std::cout << "Classic" << std::endl << std::endl;
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
     timePoint start = std::chrono::high_resolution_clock::now();
     for (int testNb = 0; testNb < nbOfTests; testNb++)
     {
@@ -87,17 +93,19 @@ void Vec2PerfTests()
         {
             for (int j = 0; j < size; j++)
             {
-                result = ClassicVecs[i][j] + ClassicVecs[i][j];
+                float newX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+                float newY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+               ClassicVecs[i][j] += Vector2(newX,newY);
             }
         }
     }
     timePoint end = std::chrono::high_resolution_clock::now();
     std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    std::cout << "computation took: " << elapsed_seconds.count() << "s" << std::endl;
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
 
-    std::cout << "MM" << std::endl << std::endl;
-    AVector2 mResult;
+    std::cout << std::endl << "MM" << std::endl;
 
+    std::srand(std::time(nullptr));
     start = std::chrono::high_resolution_clock::now();
     for (int testNb = 0; testNb < nbOfTests; testNb++)
     {
@@ -105,25 +113,27 @@ void Vec2PerfTests()
         {
             for (int j = 0; j < size; j++)
             {
-                mResult = MMVecs[i][j] + MMVecs[i][j];
+                float newX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+                float newY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
+                MMVecs[i][j] += AVector4(newX, newY);
             }
         }
     }
     end = std::chrono::high_resolution_clock::now();
     elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
-    std::cout << "computation took: " << elapsed_seconds.count() << "s" << std::endl;
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
 }
 
-void Vec2Tests()
+void Vec4Tests()
 {
     std::cout << "Starting Operator+ test" << std::endl;
 
-    AVector2 A = AVector2(12.51f, -45.66f);
-    AVector2 B = AVector2(-74.f, 33.f);
-    AVector2 C = AVector2(-25.23f, -78.12);
-    AVector2 D = AVector2(45.f, 2.66f);
-    AVector2 E = AVector2(-1.f, 8.25f);
-    AVector2 F = AVector2(8.f, 0.f);
+    AVector4 A = AVector4(12.51f, -45.66f);
+    AVector4 B = AVector4(-74.f, 33.f);
+    AVector4 C = AVector4(-25.23f, -78.12);
+    AVector4 D = AVector4(45.f, 2.66f);
+    AVector4 E = AVector4(-1.f, 8.25f);
+    AVector4 F = AVector4(8.f, 0.f);
 
     std::cout << A << "+" << B << " becomes " << A + B << std::endl;
     std::cout << C << "+" << D << " becomes " << C + D << std::endl;
@@ -168,9 +178,9 @@ void Vec2Tests()
     std::cout << E << " becomes " << -E << " and is still " << E << std::endl;
     std::cout << F << " becomes " << -F << " and is still " << F << std::endl;
 
-    AVector2 G;
-    AVector2 H;
-    AVector2 I;
+    AVector4 G;
+    AVector4 H;
+    AVector4 I;
 
     std::cout << std::endl << "Starting Operator= test" << std::endl;
     std::cout << G << "=" << A << " becomes ";
@@ -185,14 +195,14 @@ void Vec2Tests()
     I = C;
     std::cout << I << std::endl;
 
-    Vector2 Abis = Vector2(A.x, A.y);
-    Vector2 Bbis = Vector2(B.x, B.y);
-    Vector2 Cbis = Vector2(C.x, C.y);
-    Vector2 Dbis = Vector2(D.x, D.y);
-    Vector2 Ebis = Vector2(E.x, E.y);
-    Vector2 Fbis = Vector2(F.x, F.y);
-    Vector2 Gbis = Vector2(G.x, G.y);
-    Vector2 Hbis = Vector2(H.x, H.y);
+    Vector4 Abis = Vector4(A.x, A.y, A.z, A.w);
+    Vector4 Bbis = Vector4(B.x, B.y, B.z, B.w);
+    Vector4 Cbis = Vector4(C.x, C.y, C.z, C.w);
+    Vector4 Dbis = Vector4(D.x, D.y, D.z, D.w);
+    Vector4 Ebis = Vector4(E.x, E.y, E.z, E.w);
+    Vector4 Fbis = Vector4(F.x, F.y, F.z, F.w);
+    Vector4 Gbis = Vector4(G.x, G.y, G.z, G.w);
+    Vector4 Hbis = Vector4(H.x, H.y, H.z, H.w);
 
     std::cout << std::endl << "Creating normal vectors from MM vectors" << std::endl;
     std::cout << "Abis=" << Abis << " and Bbis=" << Bbis << std::endl;
@@ -263,14 +273,14 @@ void Vec2Tests()
     std::cout << Gbis << "DOT" << Hbis << " becomes " << Gbis.DotProduct(Hbis) << std::endl;
     std::cout << G << "DOT" << H << " becomes " << G.DotProduct(H) << std::endl;
 
-    std::cout << Abis << "STATIC DOT" << Bbis << " becomes " << Vector2::DotProduct(Abis,Bbis) << std::endl;
-    std::cout << A << "STATIC DOT" << B << " becomes " << AVector2::DotProduct(A,B) << std::endl;
-    std::cout << Cbis << "STATIC DOT" << Dbis << " becomes " << Vector2::DotProduct(Cbis,Dbis) << std::endl;
-    std::cout << C << "STATIC DOT" << D << " becomes " << AVector2::DotProduct(C,D) << std::endl;
-    std::cout << Ebis << "STATIC DOT" << Fbis << " becomes " << Vector2::DotProduct(Ebis,Fbis) << std::endl;
-    std::cout << E << "STATIC DOT" << F << " becomes " << AVector2::DotProduct(E,F) << std::endl;
-    std::cout << Gbis << "STATIC DOT" << Hbis << " becomes " << Vector2::DotProduct(Gbis,Hbis) << std::endl;
-    std::cout << G << "STATIC DOT" << H << " becomes " << AVector2::DotProduct(G,H) << std::endl;
+    std::cout << Abis << "STATIC DOT" << Bbis << " becomes " << Vector4::DotProduct(Abis,Bbis) << std::endl;
+    std::cout << A << "STATIC DOT" << B << " becomes " << AVector4::DotProduct(A,B) << std::endl;
+    std::cout << Cbis << "STATIC DOT" << Dbis << " becomes " << Vector4::DotProduct(Cbis,Dbis) << std::endl;
+    std::cout << C << "STATIC DOT" << D << " becomes " << AVector4::DotProduct(C,D) << std::endl;
+    std::cout << Ebis << "STATIC DOT" << Fbis << " becomes " << Vector4::DotProduct(Ebis,Fbis) << std::endl;
+    std::cout << E << "STATIC DOT" << F << " becomes " << AVector4::DotProduct(E,F) << std::endl;
+    std::cout << Gbis << "STATIC DOT" << Hbis << " becomes " << Vector4::DotProduct(Gbis,Hbis) << std::endl;
+    std::cout << G << "STATIC DOT" << H << " becomes " << AVector4::DotProduct(G,H) << std::endl;
 
     
     
@@ -326,14 +336,14 @@ void Vec2Tests()
     std::cout << Gbis << " dist " << Hbis << " becomes " << Gbis.GetDistance(Hbis) << std::endl;
     std::cout << G << " dist " << H << " becomes " << G.GetDistance(H) << std::endl;
 
-    std::cout << Abis << "STATIC DIST" << Bbis << " becomes " << Vector2::GetDistance(Abis, Bbis) << std::endl;
-    std::cout << A << "STATIC DIST" << B << " becomes " << AVector2::GetDistance(A, B) << std::endl;
-    std::cout << Cbis << "STATIC DIST" << Dbis << " becomes " << Vector2::GetDistance(Cbis, Dbis) << std::endl;
-    std::cout << C << "STATIC DIST" << D << " becomes " << AVector2::GetDistance(C, D) << std::endl;
-    std::cout << Ebis << "STATIC DIST" << Fbis << " becomes " << Vector2::GetDistance(Ebis, Fbis) << std::endl;
-    std::cout << E << "STATIC DIST" << F << " becomes " << AVector2::GetDistance(E, F) << std::endl;
-    std::cout << Gbis << "STATIC DIST" << Hbis << " becomes " << Vector2::GetDistance(Gbis, Hbis) << std::endl;
-    std::cout << G << "STATIC DIST" << H << " becomes " << AVector2::GetDistance(G, H) << std::endl;
+    std::cout << Abis << "STATIC DIST" << Bbis << " becomes " << Vector4::GetDistance(Abis, Bbis) << std::endl;
+    std::cout << A << "STATIC DIST" << B << " becomes " << AVector4::GetDistance(A, B) << std::endl;
+    std::cout << Cbis << "STATIC DIST" << Dbis << " becomes " << Vector4::GetDistance(Cbis, Dbis) << std::endl;
+    std::cout << C << "STATIC DIST" << D << " becomes " << AVector4::GetDistance(C, D) << std::endl;
+    std::cout << Ebis << "STATIC DIST" << Fbis << " becomes " << Vector4::GetDistance(Ebis, Fbis) << std::endl;
+    std::cout << E << "STATIC DIST" << F << " becomes " << AVector4::GetDistance(E, F) << std::endl;
+    std::cout << Gbis << "STATIC DIST" << Hbis << " becomes " << Vector4::GetDistance(Gbis, Hbis) << std::endl;
+    std::cout << G << "STATIC DIST" << H << " becomes " << AVector4::GetDistance(G, H) << std::endl;
 
     
     std::cout << std::endl << "Starting Normal test" << std::endl;
@@ -419,7 +429,7 @@ void Vec2Tests()
     H.Normalize();
     std::cout << H << std::endl;
 
-    Vec2PerfTests();
+    Vec4PerfTests();
 }
 
 
@@ -427,8 +437,8 @@ int main()
 {
     FloatTests();
 
-    std::cout << "________________________AVEC2________________________" << std::endl;
-    Vec2Tests();
+    std::cout << "________________________AVEC4________________________" << std::endl;
+    Vec4Tests();
 
     int x = 1054;
     x += x;

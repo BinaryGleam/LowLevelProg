@@ -159,6 +159,7 @@
   <ItemGroup>
     <ClInclude Include="AssemblyMath.h" />
     <ClInclude Include="AVector2.h" />
+    <ClInclude Include="AVector4.h" />
     <ClInclude Include="CustomMath.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Matrix.h" />
@@ -170,6 +171,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="AVector2.cpp" />
+    <ClCompile Include="AVector4.cpp" />
     <ClCompile Include="Matrix.cpp" />
     <ClCompile Include="MmathLib.cpp" />
     <ClCompile Include="Quaternion.cpp" />

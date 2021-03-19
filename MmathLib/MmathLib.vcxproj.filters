@@ -22,6 +22,9 @@
     <Filter Include="Source Files\CustomMath">
       <UniqueIdentifier>{0e2a7441-5bbd-48f4-94b8-8385da533533}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\AssemblyMath">
+      <UniqueIdentifier>{b3eb0082-9a79-49af-b527-102e61477640}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -54,6 +57,9 @@
     <ClInclude Include="AVector2.h">
       <Filter>Header Files\AssemblyMath</Filter>
     </ClInclude>
+    <ClInclude Include="AVector4.h">
+      <Filter>Header Files\AssemblyMath</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MmathLib.cpp">
@@ -78,7 +84,10 @@
       <Filter>Source Files\CustomMath</Filter>
     </ClCompile>
     <ClCompile Include="AVector2.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\AssemblyMath</Filter>
+    </ClCompile>
+    <ClCompile Include="AVector4.cpp">
+      <Filter>Source Files\AssemblyMath</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

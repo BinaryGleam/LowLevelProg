@@ -1,15 +1,17 @@
 ﻿  LowLevelProg.cpp
-C:\Users\lukni\Documents\Programmation\LowLevelProg\MmathLib\AssemblyMath.h(34,3): warning C4091: 'static ': ignored on left of 'Mmath::AssemblyMath' when no variable is declared
-C:\Users\lukni\Documents\Programmation\LowLevelProg\MmathLib\Quaternion.h(9,2): warning C4099: 'CMath::Quaternion': type name first seen using 'class' now seen using 'struct'
-C:\Users\lukni\Documents\Programmation\LowLevelProg\MmathLib\Quaternion.h(8): message : see declaration of 'CMath::Quaternion'
-C:\Users\lukni\Documents\Programmation\LowLevelProg\MmathLib\CustomMath.h(27,3): warning C4091: 'static ': ignored on left of 'CMath::CustomMath' when no variable is declared
-C:\Users\lukni\Documents\Programmation\LowLevelProg\LowLevelProg\LowLevelProg.cpp(48,30): warning C4305: 'initializing': truncation from '__int64' to 'int'
-C:\Users\lukni\Documents\Programmation\LowLevelProg\LowLevelProg\LowLevelProg.cpp(48,21): warning C4309: 'initializing': truncation of constant value
-C:\Users\lukni\Documents\Programmation\LowLevelProg\LowLevelProg\LowLevelProg.cpp(54,25): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-C:\Users\lukni\Documents\Programmation\LowLevelProg\LowLevelProg\LowLevelProg.cpp(123,42): warning C4305: 'argument': truncation from 'double' to 'const float'
-  Generating code
-  5 of 79 functions ( 6.3%) were compiled, the rest were copied from previous compilation.
-    3 functions were new in current compilation
-    3 functions had inline decision re-evaluated but remain unchanged
-  Finished generating code
-  LowLevelProg.vcxproj -> C:\Users\lukni\Documents\Programmation\LowLevelProg\x64\Release\LowLevelProg.exe
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\AssemblyMath.h(34,3): warning C4091: 'static ' : ignoré à gauche de 'Mmath::AssemblyMath' quand aucune variable n'est déclarée
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\Quaternion.h(9,2): warning C4099: 'CMath::Quaternion' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\Quaternion.h(8): message : voir la déclaration de 'CMath::Quaternion'
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\CustomMath.h(27,3): warning C4091: 'static ' : ignoré à gauche de 'CMath::CustomMath' quand aucune variable n'est déclarée
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(48,30): warning C4305: 'initialisation' : troncation de '__int64' à 'int'
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(48,21): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(54,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(84,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(104,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(129,42): warning C4305: 'argument' : troncation de 'double' à 'const float'
+  Génération de code en cours
+  7 of 79 functions ( 8.9%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    9 functions had inline decision re-evaluated but remain unchanged
+  Fin de la génération du code
+  LowLevelProg.vcxproj -> C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\x64\Release\LowLevelProg.exe
