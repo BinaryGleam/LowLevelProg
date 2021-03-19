@@ -792,6 +792,17 @@ int main()
     std::cout << "________________________AVEC4________________________" << std::endl;
     Vec4Tests();
 
+    //Why is this much longer
+    {
+        std::cout << "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~" << std::endl;
+        std::cout << std::endl << "Dummy Test" << std::endl;
+        Timer time;
+
+        int value = 0;
+        for (int i = 0; i < 10000000; i++)
+            value += 2;
+    }
+
     int x = 1054;
     x += x;
     return x;
