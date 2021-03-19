@@ -1,1 +1,28 @@
-﻿  LowLevelProg.vcxproj -> C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\x64\Debug\LowLevelProg.exe
+﻿  LowLevelProg.cpp
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\AssemblyMath.h(34,3): warning C4091: 'static ' : ignoré à gauche de 'Mmath::AssemblyMath' quand aucune variable n'est déclarée
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\Quaternion.h(9,2): warning C4099: 'CMath::Quaternion' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\Quaternion.h(8): message : voir la déclaration de 'CMath::Quaternion'
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\MmathLib\CustomMath.h(27,3): warning C4091: 'static ' : ignoré à gauche de 'CMath::CustomMath' quand aucune variable n'est déclarée
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(20,26): warning C4305: 'initialisation' : troncation de '__int64' à 'int'
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(20,17): warning C4309: 'initialisation' : troncation de valeur de constante
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(62,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(85,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(112,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(134,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(161,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(183,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(207,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(225,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(247,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(265,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(287,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(305,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(327,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(345,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(367,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(385,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(407,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(432,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(460,25): warning C4244: 'argument' : conversion de 'time_t' en 'unsigned int', perte possible de données
+C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\LowLevelProg\LowLevelProg.cpp(509,42): warning C4305: 'argument' : troncation de 'double' à 'const float'
+  LowLevelProg.vcxproj -> C:\Users\lukni\OneDrive\Prog\LowLevelProgFolder\LowLevelProg\x64\Debug\LowLevelProg.exe

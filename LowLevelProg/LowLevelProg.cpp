@@ -13,6 +13,19 @@
 using namespace Mmath;
 using namespace CMath;
 
+
+//Test parameters
+typedef std::chrono::high_resolution_clock::time_point timePoint;
+
+int nbOfTests = INT64_MAX;
+const int size = 2000;
+float vecFloatMax = 100.0f;
+float vecFloatMin = -100.0f;
+
+Vector4 ClassicVecs[size][size];
+AVector4 MMVecs[size][size];
+
+
 void FloatTests()
 {
     std::cout << "Starting inv test" << std::endl;
@@ -41,51 +54,13 @@ void FloatTests()
     std::cout << std::endl;
 }
 
-void Vec4PerfTests()
+void Addition()
 {
-    std::cout << std::endl << "###PERF TESTS###" << std::endl;
-
-    int nbOfTests = INT64_MAX;
-    const int size = 100;
-
-    Vector4 ClassicVecs[size][size];
-    AVector4 MMVecs[size][size];
-
-    std::srand(std::time(nullptr));
-
-    //Vector Init
-    std::cout << std::endl << "Vec4 init" << std::endl;
-    float max = 100.0f;
-    float min = -100.0f;
-    for (int i = 0; i < size; i++)
-    {
-        for (int j = 0; j < size; j++)
-        {
-            
-
-            float cX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
-            float cY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
-            float cZ = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-            float cW = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-            float mX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
-            float mY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(max - min)));
-            float mZ = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-            float mW = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-
-            ClassicVecs[i][j] = Vector4(cX,cY, cZ, cW);
-            MMVecs[i][j] = AVector4(mX,mY,mZ,mW);
-        }
-    }
-
-    
-
-    typedef std::chrono::high_resolution_clock::time_point timePoint;
-
     std::cout << std::endl << "Addition" << std::endl;
-    Vector2 result;
 
     std::cout << "Classic" << std::endl;
     std::srand(std::time(nullptr));
+
     timePoint start = std::chrono::high_resolution_clock::now();
     for (int testNb = 0; testNb < nbOfTests; testNb++)
     {
@@ -93,9 +68,11 @@ void Vec4PerfTests()
         {
             for (int j = 0; j < size; j++)
             {
-                float newX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-                float newY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-               ClassicVecs[i][j] += Vector2(newX,newY);
+                float newX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                ClassicVecs[i][j] += Vector4(newX, newY, newZ, newW);
             }
         }
     }
@@ -113,9 +90,107 @@ void Vec4PerfTests()
         {
             for (int j = 0; j < size; j++)
             {
-                float newX = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-                float newY = min + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (max - min)));
-                MMVecs[i][j] += AVector4(newX, newY);
+                float newX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                MMVecs[i][j] += AVector4(newX, newY, newZ, newW);
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+}
+
+void Substraction()
+{
+    std::cout << std::endl << "Substraction" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                float newX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                ClassicVecs[i][j] -= Vector4(newX, newY, newZ, newW);
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                float newX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                MMVecs[i][j] -= AVector4(newX, newY, newZ, newW);
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+}
+
+void Multiplication()
+{
+    std::cout << std::endl << "Multiplication" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                float newX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                ClassicVecs[i][j] *= Vector4(newX, newY, newZ, newW);
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                float newX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                float newY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+                MMVecs[i][j] *= AVector4(newX, newY);
             }
         }
     }
@@ -123,6 +198,307 @@ void Vec4PerfTests()
     elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
     std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
 }
+
+void Dot()
+{
+    std::cout << std::endl << "Dot" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                ClassicVecs[i][j].DotProduct(ClassicVecs[i][j]);
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                MMVecs[i][j].DotProduct(MMVecs[i][j]);
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+}
+
+void Mag()
+{
+    std::cout << std::endl << "Mag" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                ClassicVecs[i][j].GetMagnitude();
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                MMVecs[i][j].GetMagnitude();;
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+}
+
+void SqrMag()
+{
+    std::cout << std::endl << "SqrMag" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                ClassicVecs[i][j].GetSquareMagnitude();
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                MMVecs[i][j].GetSquareMagnitude();;
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+}
+
+void Dist()
+{
+    std::cout << std::endl << "Dist" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                Vector4::GetDistance(ClassicVecs[i][j], ClassicVecs[i][j]);
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                AVector4::GetDistance(MMVecs[i][j], MMVecs[i][j]);
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+}
+
+void Normal()
+{
+    std::cout << std::endl << "Normal" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                ClassicVecs[i][j].GetNormalized();
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                MMVecs[i][j].GetNormalized();;
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+}
+
+void Everything()
+{
+    std::cout << std::endl << "Everything" << std::endl;
+
+    std::cout << "Classic" << std::endl;
+    std::srand(std::time(nullptr));
+    timePoint start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                ClassicVecs[i][j] += ClassicVecs[i][j];
+                ClassicVecs[i][j] *= ClassicVecs[i][j];
+                ClassicVecs[i][j] -= ClassicVecs[i][j];
+                ClassicVecs[i][j].DotProduct(ClassicVecs[i][j]);
+                ClassicVecs[i][j].GetMagnitude();
+                ClassicVecs[i][j].GetSquareMagnitude();
+                Vector4::GetDistance(ClassicVecs[i][j], ClassicVecs[i][j]);
+                ClassicVecs[i][j].GetNormalized();
+            }
+        }
+    }
+    timePoint end = std::chrono::high_resolution_clock::now();
+    std::chrono::duration<double> elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+
+    std::cout << std::endl << "MM" << std::endl;
+
+    std::srand(std::time(nullptr));
+    start = std::chrono::high_resolution_clock::now();
+    for (int testNb = 0; testNb < nbOfTests; testNb++)
+    {
+        for (int i = 0; i < size; i++)
+        {
+            for (int j = 0; j < size; j++)
+            {
+                MMVecs[i][j] += MMVecs[i][j];
+                MMVecs[i][j] *= MMVecs[i][j];
+                MMVecs[i][j] -= MMVecs[i][j];
+                MMVecs[i][j].DotProduct(MMVecs[i][j]);
+                MMVecs[i][j].GetMagnitude();
+                MMVecs[i][j].GetSquareMagnitude();
+                AVector4::GetDistance(MMVecs[i][j], MMVecs[i][j]);
+                MMVecs[i][j].GetNormalized();
+            }
+        }
+    }
+    end = std::chrono::high_resolution_clock::now();
+    elapsed_seconds = std::chrono::duration_cast<std::chrono::nanoseconds>(end - start);
+    std::cout << "computation took: " << elapsed_seconds.count() << " nano seconds" << std::endl;
+}
+
+void Vec4PerfTests()
+{
+    std::cout << std::endl << "###PERF TESTS###" << std::endl;
+
+    std::srand(std::time(nullptr));
+
+    //Vector Init
+    std::cout << std::endl << "Vec4 init" << std::endl;
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 0; j < size; j++)
+        {
+            
+
+            float cX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(vecFloatMax - vecFloatMin)));
+            float cY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(vecFloatMax - vecFloatMin)));
+            float cZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+            float cW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+            float mX = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(vecFloatMax - vecFloatMin)));
+            float mY = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX/(vecFloatMax - vecFloatMin)));
+            float mZ = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+            float mW = vecFloatMin + static_cast <float> (rand()) / (static_cast <float> (RAND_MAX / (vecFloatMax - vecFloatMin)));
+
+            ClassicVecs[i][j] = Vector4(cX,cY, cZ, cW);
+            MMVecs[i][j] = AVector4(mX,mY,mZ,mW);
+        }
+    }
+
+    Addition();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Substraction();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Multiplication();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Dot();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Mag();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    SqrMag();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Dist();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Normal();
+    std::cout << std::endl << "----------------------------------------" << std::endl;
+    Everything();
+};
 
 void Vec4Tests()
 {
